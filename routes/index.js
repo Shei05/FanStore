@@ -1,10 +1,10 @@
 const articulosRouters = require('./articulos')
-//const devolucionesRouters = require('./devoluciones')
-//const clientesRouters = require ('/clientes')
-
+const clientesRouters = require('./clientes')
 
 function routerApi (app){
   app.use('/articulos', articulosRouters)
+  app.use('/clientes', clientesRouters)
+
 }
 
 module.exports = routerApi
