@@ -2,7 +2,10 @@ const routerApi = require('./routes')
 const express = require('express')
 const app = express()
 const { config } = require('./config/index')
+const { checkApiKey } = require('./middleware/auth.handler')
+const passport = require('passport')
 
+app.use(passport.initialize)
 const port = config.port
 
 const mongoose = require ('mongoose')
@@ -17,13 +20,17 @@ mongoose.connect(MONGO_URI,
   {useNewUrlParser: true, useUnifiedTopology: true}
   ).then (()=> console.log('La conexion a sido exitosa')).catch(e=>console.log(e))
 
+  require('./utils/auth')
+
 app.get('/', (req, res)=>{
-    res.send('Hi body! Welcome to node and express js')
+    res.send('¡Hola bienvenidos a FanStore!')
 })
 
+app.get('/otra-ruta',checkApiKey, (req, res)=>{
+  res.send('Hi! This is other route')
+})
 
 routerApi(app)
-
 app.listen(port, () => {
-    console.log(`Listening at http://localhost/:${port}`)
+    console.log(`Listening at http://localhost:${port}`)
 })
