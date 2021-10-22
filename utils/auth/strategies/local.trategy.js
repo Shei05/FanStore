@@ -6,7 +6,7 @@ const LocalStrategy = new Strategy(
       try{
         const usersTest = [
           {name: 'Irving', email: 'user1@email.com', password: '$2b$10$jBRaall0qjvJpTraHl29mu0kXbnR7Fn9g7Hk5MtVByKsQsL3RcCWC', rol: 'user'},
-          {name: 'Diana', email: 'admin@email.com', password: '$2b$10$nHPlbC8yf4CMEPadqPuU7O061vgkl.MrP2TaYdSLxhIZSBz6ka3xi', rol: 'admin'},
+          {name: 'Diana', email: 'admin@email.com', password: '$2b$10$EZCI2ae/K5OJLGfVcgOtM.9yslz6dz6F4XdAgBI6cZZYO5XlnlLKW', rol: 'admin'},
           {name: 'Alfonso', email: 'user2@email.com', password: '$2b$10$HGTFbet629g9Uut4Esf68Oo3WpQKjYlUaN3bdxj1LaVyDKjh/IBCy', rol: 'user'},
         ]
         const user = usersTest[1]

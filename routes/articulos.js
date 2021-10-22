@@ -1,4 +1,5 @@
 const express = require('express')
+const passport = require('passport')
 const router = express.Router()
 const Articulo = require('../models/articulo')
 
@@ -20,7 +21,9 @@ router.get('/', (req, res) =>{
   }
 })
 
-router.get('/filter', (req, res) =>{
+router.get('/filter',
+passport.authenticate ('jwt', {session:false}),
+(req, res) =>{
   res.json(
 {
   name: "Playera",

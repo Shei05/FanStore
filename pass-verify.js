@@ -1,8 +1,8 @@
 const bcrypt = require ('bcrypt')
 
 async function verifyPassword(){
-  const myPassword = 'un passadorwd 20.20'
-  const myPasswordHashed = '$2b$10$TZG3Y8hwcI6y1b0Wc3M1Ve6CUQH2v/4l1sCBcnPYLGlgV1eZuF2J.'
+  const myPassword = 'un password 20.20'
+  const myPasswordHashed = '$2b$10$EZCI2ae/K5OJLGfVcgOtM.9yslz6dz6F4XdAgBI6cZZYO5XlnlLKW'
   const isMatch = await bcrypt.compare(myPassword,myPasswordHashed)
   console.log(isMatch)
 }
