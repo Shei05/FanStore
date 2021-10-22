@@ -17,6 +17,7 @@ router.get('/',
   }catch(error){
     console.log(`Error: ${error}`)
   }
+
 })
 router.get('/login',
 passport.authenticate ('jwt', {session:false}),
@@ -27,5 +28,4 @@ passport.authenticate ('jwt', {session:false}),
   password: '1234'
   })
 })
-
 module.exports = router
