@@ -1,7 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 const router = express.Router()
-const Cliente = require('../models/clientes')
+const { ctrlSelectCliente } = require('../controllers/clientes/ctrlSelectCliente')
 
 router.get('/',
 (req, res) =>{
@@ -21,11 +21,17 @@ router.get('/',
 })
 router.get('/login',
 passport.authenticate ('jwt', {session:false}),
-(req, res) =>{
-  res.json(
-{
-  email: 'carlosG@gmail.com',
-  password: '1234'
-  })
-})
+ctrlSelectCliente
+)
+router.put('/login',
+passport.authenticate ('jwt', {session:false}),
+ctrlSelectCliente
+)
+
+router.delete('/login',
+passport.authenticate ('jwt', {session:false}),
+ctrlSelectCliente
+)
+
+
 module.exports = router
