@@ -13,4 +13,3 @@ const clienteSchema = new Schema({
 })
 const Cliente = mongoose.model('Cliente', clienteSchema)
 module.exports = Cliente
-
