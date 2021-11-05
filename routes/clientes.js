@@ -2,6 +2,9 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const { ctrlSelectCliente } = require('../controllers/clientes/ctrlSelectCliente')
+const { ctrlUpdateCliente } = require('../controllers/clientes/ctrlUpdateCliente')
+const { ctrlCreateCliente } = require('../controllers/clientes/ctrlCreateCliente')
+const { ctrlDeleteCliente } = require('../controllers/clientes/ctrlDeleteCliente')
 
 router.get('/',
 (req, res) =>{
@@ -19,18 +22,24 @@ router.get('/',
   }
 
 })
-router.get('/login',
-passport.authenticate ('jwt', {session:false}),
-ctrlSelectCliente
-)
-router.put('/login',
+router.get('/',
 passport.authenticate ('jwt', {session:false}),
 ctrlSelectCliente
 )
 
-router.delete('/login',
+router.post('/',
 passport.authenticate ('jwt', {session:false}),
-ctrlSelectCliente
+ctrlCreateCliente
+)
+
+router.put('/:email',
+passport.authenticate ('jwt', {session:false}),
+ctrlUpdateCliente
+)
+
+router.delete('/:email',
+passport.authenticate ('jwt', {session:false}),
+ctrlDeleteCliente
 )
 
 

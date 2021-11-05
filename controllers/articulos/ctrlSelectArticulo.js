@@ -1,11 +1,11 @@
-const { selectCliente } = require('../../services/clientes/selectCliente')
+const { selectArticulo } = require('../../services/articulos/selectArticulo')
 
-async function ctrlSelectCliente(req, res){
+async function ctrlSelectArticulo(req, res){
   try{
      const { genre } = req.query
      console.log('Hola desde controlador')
-     const Clientes = await selectCliente(genre)
-     return res.status(200).send (Clientes)
+     const Articulos = await selectArticulo(genre)
+     return res.status(200).send (Articulos)
   }catch(error){
     return res.status(error.status || 500).send({messege: error.massege})
   }
@@ -13,4 +13,4 @@ async function ctrlSelectCliente(req, res){
      //return res.status(200).send({ genero: genre == 'M'? '  Femenino': 'Masculino' })//
 }
 
-module.exports = { ctrlSelectCliente }
+module.exports = { ctrlSelectArticulo }

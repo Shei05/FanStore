@@ -1,7 +1,10 @@
 const express = require('express')
 const passport = require('passport')
 const router = express.Router()
-const Personalizados = require('../models/personalizados')
+const { ctrlSelectPersonalizado } = require('../controllers/personalizados/ctrlSelectPersonalizado')
+const { ctrlUpdatePersonalizado } = require('../controllers/personalizados/ctrlUpdatePersonalizado')
+const { ctrlCreatePersonalizado } = require('../controllers/personalizados/ctrlCreatePersonalizado')
+const { ctrlDeletePersonalizado } = require('../controllers/personalizados/ctrlDeletePersonalizado')
 
 router.get('/', (req, res) =>{
   try{
@@ -23,5 +26,25 @@ passport.authenticate ('jwt', {session:false}),
   name: "Sudadera estampada de Lisa blackpink"
   })
 })
+
+router.get('/',
+passport.authenticate ('jwt', {session:false}),
+ctrlSelectPersonalizado
+)
+
+router.post('/',
+passport.authenticate ('jwt', {session:false}),
+ctrlCreatePersonalizado
+)
+
+router.put('/:email',
+passport.authenticate ('jwt', {session:false}),
+ctrlUpdatePersonalizado
+)
+
+router.delete('/:email',
+passport.authenticate ('jwt', {session:false}),
+ctrlDeletePersonalizado
+)
 
 module.exports = router
