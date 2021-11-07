@@ -1,16 +1,15 @@
-const { createArticulo } = require('../../services/articulos/selectArticulo')
+const { createArticulo } = require('../../services/articulos/createArticulo')
 
 async function ctrlCreateArticulo(req, res){
   try{
-     const { name, stock, price, promotion } = req.body
+     const { name, price, stock } = req.body
      console.log('Hola desde controlador')
-     const Articulo = await createArticulo( {name, stock, price, promotion})
+     const Articulo = await createArticulo( {name, price, stock})
      return res.status(200).send ( Articulo)
   }catch(error){
     return res.status(error.status || 500).send({messege: error.massege})
   }
 
-     //return res.status(200).send({ genero: genre == 'M'? '  Femenino': 'Masculino' })//
 }
 
 module.exports = { ctrlCreateArticulo }

@@ -2,10 +2,10 @@ const { updateCliente } = require('../../services/clientes/updateCliente')
 
 async function ctrlUpdateCliente(req, res){
   try{
-     const { name, lastName } = req.body
+     const { name, lastName, phone} = req.body
      const { email } = req.params
      console.log('Hola desde controlador')
-     const Cliente = await updateCliente( {name, lastName, email})
+     const Cliente = await updateCliente( {name, lastName, phone, email})
      return res.status(200).send (Cliente)
   }catch(error){
     return res.status(error.status || 500).send({messege: error.massege})

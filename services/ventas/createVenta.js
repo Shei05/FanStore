@@ -1,9 +1,10 @@
 const Venta=  require('../../models/venta')
 
-async function  createVenta( {name, total} ){
+async function  createVenta( {name, status, total} ){
   try{
  const ventaCreated = await Venta.create ({
   name,
+  status,
   total
  })
   console.log(ventaCreated)

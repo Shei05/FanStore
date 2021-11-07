@@ -1,12 +1,12 @@
 const Articulo =  require('../../models/articulo')
 
-async function selectArticulo(genre){
+async function updateArticulo({_id ,name, price, stock}){
   try{
   console.log('Hola desde servico')
-  console.log(genre)
+  console.log(_id)
   const ArticuloUpdate = await Articulo.findOneAndUpdate(
-    {stock},
-    {name, price},
+    {_id},
+    {name,price,stock},
     { new: true }
    )
     console.log(ArticuloUpdate)
@@ -15,4 +15,4 @@ async function selectArticulo(genre){
     return {message: error.message}
   }
 }
-module.exports = { selectArticulo }
+module.exports = { updateArticulo }

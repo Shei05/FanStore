@@ -2,10 +2,10 @@ const { updatePersonalizado } = require('../../services/Perzonalizados/updatePer
 
 async function ctrlUpdatePersonalizado(req, res){
   try{
-     const { name, email, price  } = req.body
-     const { email } = req.params
+     const { name, personalize, price  } = req.body
+     const { _id } = req.params
      console.log('Hola desde controlador')
-     const Personalizado = await updatePersonalizado( {name, email, price})
+     const Personalizado = await updatePersonalizado( {_id ,name, personalize, price})
      return res.status(200).send (Personalizado)
   }catch(error){
     return res.status(error.status || 500).send({messege: error.massege})

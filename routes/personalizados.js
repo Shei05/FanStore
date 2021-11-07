@@ -6,26 +6,6 @@ const { ctrlUpdatePersonalizado } = require('../controllers/personalizados/ctrlU
 const { ctrlCreatePersonalizado } = require('../controllers/personalizados/ctrlCreatePersonalizado')
 const { ctrlDeletePersonalizado } = require('../controllers/personalizados/ctrlDeletePersonalizado')
 
-router.get('/', (req, res) =>{
-  try{
-      res.json({
-        ip:'1',
-        name: "Sudadera estampada de Lisa blackpink",
-        price: 600,
-    })
-  }catch(error){
-    console.log(`Error: ${error}`)
-  }
-})
-
-router.get('/especificaciones',
-passport.authenticate ('jwt', {session:false}),
-(req, res) =>{
-  res.json(
-{
-  name: "Sudadera estampada de Lisa blackpink"
-  })
-})
 
 router.get('/',
 passport.authenticate ('jwt', {session:false}),
@@ -37,12 +17,12 @@ passport.authenticate ('jwt', {session:false}),
 ctrlCreatePersonalizado
 )
 
-router.put('/:email',
+router.put('/:_id',
 passport.authenticate ('jwt', {session:false}),
 ctrlUpdatePersonalizado
 )
 
-router.delete('/:email',
+router.delete('/:_id',
 passport.authenticate ('jwt', {session:false}),
 ctrlDeletePersonalizado
 )

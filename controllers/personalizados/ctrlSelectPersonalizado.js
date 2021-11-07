@@ -2,9 +2,9 @@ const { selectPersonalizado } = require('../../services/Perzonalizados/selectPer
 
 async function ctrlSelectPersonalizado(req, res){
   try{
-     const { genre } = req.query
+     const {_id } = req.query
      console.log('Hola desde controlador')
-     const Personalizados = await selectPersonalizado (genre)
+     const Personalizados = await selectPersonalizado (_id)
      return res.status(200).send (Personalizados)
   }catch(error){
     return res.status(error.status || 500).send({messege: error.massege})
