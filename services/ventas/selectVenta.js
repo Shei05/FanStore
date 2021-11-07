@@ -1,10 +1,10 @@
-const Venta =  require('../../models/venta')
+const Ventas =  require('../../models/venta')
 
-async function selectVenta(genre){
+async function selectVenta(_id){
   try{
   console.log('Hola desde servico')
-  console.log(genre)
-  const venta = !genre ? await Venta.find() : await Venta.find({genre})
+  console.log(_id)
+  const venta = !_id ? await Ventas.find() : await Ventas.find({_id})
   return venta
   }catch(error){
     return {message: error.message}

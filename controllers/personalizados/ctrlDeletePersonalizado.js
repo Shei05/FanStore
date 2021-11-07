@@ -2,9 +2,9 @@ const { deletePersonalizado } = require('../../services/Perzonalizados/deletePer
 
 async function ctrlDeletePersonalizado(req, res){
   try{
-     const { email } = req.params
+     const { _id } = req.params
      console.log('Hola desde controlador')
-     const Personalizado = await deletePersonalizado( { email})
+     const Personalizado = await deletePersonalizado( { _id})
      return res.status(200).send (Personalizado)
   }catch(error){
     return res.status(error.status || 500).send({messege: error.massege})

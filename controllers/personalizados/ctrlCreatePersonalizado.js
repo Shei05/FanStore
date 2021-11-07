@@ -2,9 +2,9 @@ const { createPersonalizado } = require('../../services/Perzonalizados/createPer
 
 async function ctrlCreatePersonalizado(req, res){
   try{
-     const { name, price, email } = req.body
+     const { name, personalize, price, } = req.body
      console.log('Hola desde controlador')
-     const Personalizado = await createPersonalizado( {name, price, email})
+     const Personalizado = await createPersonalizado( {name, personalize, price})
      return res.status(200).send ( Personalizado)
   }catch(error){
     return res.status(error.status || 500).send({messege: error.massege})

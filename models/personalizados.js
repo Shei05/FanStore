@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const personalizadosSchema = new Schema({
-  id:{require:true, type:String, unique: true},
-  name: String,
-  personalize: String,
+  name: {type:String},
+  personalize: {type:String},
   price: {type:Number},
 },{
   timestamps:true

@@ -1,11 +1,11 @@
 const Personalizado =  require('../../models/personalizados')
 
-async function createPersonalizado( {name, price, email} ){
+async function createPersonalizado( {name, personalize, price} ){
   try{
     const personalizadoCreated = await Personalizado.create ({
       name,
-      price,
-      email
+      personalize,
+      price
      })
       console.log(personalizadoCreated)
       return personalizadoCreated

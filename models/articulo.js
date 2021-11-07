@@ -1,11 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const articuloSchema = new Schema({
-  id:{require:true, type:String, unique: true},
-  name: String,
+  name: {type: String},
   price: {type:Number},
-  stock: {type:Number},
-  picture: {type: String, default:''},
+  stock: {type: String}
 
 },{
   timestamps:true

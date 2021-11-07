@@ -1,18 +1,17 @@
-const Cliente =  require('../../models/clientes')
+const Personalizados =  require('../../models/personalizados')
 
-async function  updateCliente( {name, lastName, email} ){
+async function  updatePersonalizado( {_id, name, personalize, price} ){
   try{
   console.log('Hola desde servico')
-  console.log(email)
- const clienteUpdate = await Cliente.findOneAndUpdate(
-  {email},
-  {name, lastName},
+ const personalizadoUpdate = await Personalizados.findOneAndUpdate(
+  {_id},
+  {name, personalize, price},
   { new: true }
  )
-  console.log(clienteUpdate)
-  return clienteUpdate
+  console.log(personalizadoUpdate)
+  return personalizadoUpdate
   }catch(error){
     return {message: error.message}
   }
 }
-module.exports = { updateCliente }
+module.exports = { updatePersonalizado }

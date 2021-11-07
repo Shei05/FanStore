@@ -1,10 +1,10 @@
 const Articulo =  require('../../models/articulo')
 
-async function selectArticulo(genre){
+async function selectArticulo(_id){
   try{
   console.log('Hola desde servico')
-  console.log(genre)
-  const Articulos = !genre ? await Articulo.find() : await Articulo.find({genre})
+  console.log(_id)
+  const Articulos = !_id ? await Articulo.find() : await Articulo.find({_id})
   return Articulos
   }catch(error){
     return {message: error.message}

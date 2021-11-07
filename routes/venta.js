@@ -6,27 +6,6 @@ const { ctrlUpdateVenta } = require('../controllers/ventas/ctrlUpdateVenta')
 const { ctrlCreateVenta } = require('../controllers/ventas/ctrlCreateVenta')
 const { ctrlDeleteVenta } = require('../controllers/ventas/ctrlDeleteVenta')
 
-router.get('/', (req, res) =>{
-  try{
-    res.json ({
-      status: 'venta realizada',
-      idVenta: 1,
-      totalPrince: 500,
-    })
-  }catch(error){
-    console.log('Error: ${error}')
-  }
-})
-
-router.get('/detalles',
- passport.authenticate ('jwt', {session:false}),
-(req, res)=>{
- res.json(
-   {
-    status: 'venta realizada',
-    idVenta: 1,
-   })
-})
 
 router.get('/',
 passport.authenticate ('jwt', {session:false}),
@@ -38,12 +17,12 @@ passport.authenticate ('jwt', {session:false}),
 ctrlCreateVenta
 )
 
-router.put('/:email',
+router.put('/:_id',
 passport.authenticate ('jwt', {session:false}),
 ctrlUpdateVenta
 )
 
-router.delete('/:email',
+router.delete('/:_id',
 passport.authenticate ('jwt', {session:false}),
 ctrlDeleteVenta
 )
