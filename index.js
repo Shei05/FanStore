@@ -2,7 +2,6 @@ const routerApi = require('./routes')
 const express = require('express')
 const app = express()
 const { config } = require('./config/index')
-const { checkApiKey } = require('./middleware/auth.handler')
 const passport = require('passport')
 
 app.use(passport.initialize())
